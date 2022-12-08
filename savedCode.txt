@@ -1,0 +1,62 @@
+   //SKAPAR NY LÄRARE
+        Teacher n1 = new Teacher(){
+            TeacherId = Guid.NewGuid(),
+            FirstName = "Micheal",
+            LastName = "Gustavsson",
+            SocialSecurityNumber = "1970-03-44-xxxx",
+            Email = "MichealG@ju.se",
+            StreetAddress = "Jönköpingsvägen 22",
+            PostalCode = "281 22",
+            City = "Jönköping",
+            Phone = "0732424244"
+
+        };
+      ConnectToDataBase($"INSERT INTO teacher(teacherid,firstname,lastname,socialsecuritynumber,email,address,postcode,city,phone)VALUES('{n1.TeacherId}','{n1.FirstName}','{n1.LastName}','{n1.SocialSecurityNumber}','{n1.Email}','{n1.StreetAddress}','{n1.PostalCode}','{n1.City}','{n1.Phone}')");
+
+  
+  
+  
+  
+  //Skapar ny student
+        Student n1 = new Student()
+        {
+            StudentId = Guid.NewGuid(),
+            FirstName = "Oskar",
+            LastName = "Markbäck",
+            SocialSecurityNumber = "1992-04-24-xxxx",
+            Email = "oskarmarkback@gmail.com",
+            StreetAddress = "Brönnestad 6173",
+            PostalCode = "281 92",
+            City = "Hässleholm",
+            Phone = "0739817787"
+        };
+        // Skapar ny KURS
+        Courses c1 = new Courses()
+        {
+            CourseId = Guid.NewGuid(),
+            Name = "Arbetsmiljö inom IT",
+            StartDate = DateTime.Now.AddDays(30),
+            EndDate = DateTime.Now.AddDays(50),
+            CourseNumber = "FLEX10BB"
+
+        };
+
+
+
+
+
+        var allCourses = ListAllCourses();
+
+
+        foreach(var item in allCourses){
+           Console.WriteLine(@"
+           Kursid: {0}
+           Kursnamn: {1}
+           Startdatum: {2}
+           Slutdatum: {3}
+           Kursnummer: {4}",
+           item.CourseId,item.Name,item.StartDate.ToString("yyyy/MM/dd"),item.EndDate.ToString("yyyy/MM/dd"),item.CourseNumber);
+        }
+        /* ConnectToDataBase($"INSERT INTO courses(courseid,name,startdate,enddate,coursenumber)VALUES('{c1.CourseId}', '{c1.Name}', '{c1.StartDate}', '{c1.EndDate}', '{c1.CourseNumber}')"); */
+        /* ConnectToDataBase($"INSERT INTO student(studentid,firstname,lastname,socialsecuritynumber,email,address,postcode,city,phone)VALUES('{n1.StudentId}','{n1.FirstName}','{n1.LastName}','{n1.SocialSecurityNumber}','{n1.Email}','{n1.StreetAddress}','{n1.PostalCode}','{n1.City}','{n1.Phone}')"); */
+                /* ConnectToDataBase($"INSERT INTO teacher(teacherid,firstname,lastname,socialsecuritynumber,email,address,postcode,city,phone)VALUES('{n1.StudentId}','{n1.FirstName}','{n1.LastName}','{n1.SocialSecurityNumber}','{n1.Email}','{n1.StreetAddress}','{n1.PostalCode}','{n1.City}','{n1.Phone}')"); */

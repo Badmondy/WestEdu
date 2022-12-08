@@ -1,0 +1,14 @@
+{
+    "Teacher":{
+        "password" : "s3cretw0rd"
+    },
+
+    "Educationleader":{
+        "password": "m3gas3cretw0rd"
+    },
+
+    "Administrator":{
+        "password": "admin"
+    }
+
+}
